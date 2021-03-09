@@ -1,0 +1,1 @@
+/home/galen/coursera_kaldi/steps/make_decode_graph.sh

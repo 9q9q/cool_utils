@@ -1,0 +1,1 @@
+/home/galen/coursera_kaldi/steps/finish_data_dir.sh

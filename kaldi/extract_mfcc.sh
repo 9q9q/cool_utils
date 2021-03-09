@@ -1,0 +1,1 @@
+/home/galen/coursera_kaldi/steps/extract_mfcc.sh
