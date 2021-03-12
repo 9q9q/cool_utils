@@ -9,7 +9,9 @@ import argparse
 import logging
 import os
 import pandas as pd
+from pathlib import Path
 from shutil import copyfile
+from shutil import rmtree
 import subprocess
 import sys
 import csv
@@ -50,11 +52,12 @@ def main():
             "output (transcripts with lowest error rate).")
     args = parser.parse_args()
 
+    Path(TMP_OUT).mkdir(parents=True, exist_ok=True)
+
     tra_paths = []
     for f in os.listdir(args.tra_dir):
         if f.endswith(".tra"):
-            tra_paths.append(os.path.join(args.tra_dir, f))
-
+            tra_paths.append(os.path.join(args.tra_dir, f)) 
     best_error = float("inf")
     best_tra = ""
     for tra in tra_paths:
@@ -70,6 +73,7 @@ def main():
     print("Best hyp with code-switch WER {} saved to {}.".format(best_error,
         args.out))
 
+    rmtree(TMP_OUT)    
 
 if __name__ == "__main__":
     main()
