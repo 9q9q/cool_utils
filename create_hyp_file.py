@@ -7,6 +7,7 @@ python create_hyp_file.py --hyp_file=/home/galen/pytorch_kaldi/pytorch-kaldi/kal
 """
 
 import argparse
+import copy
 import logging
 import os
 import sys
@@ -27,7 +28,8 @@ def reformat(hyp_file, truth_file, out):
             if utt_id in utts:
                 utts[utt_id].append(text.strip())
 
-    for utt_id, text in utts.items():
+    utts_copy = copy.deepcopy(utts)
+    for utt_id, text in utts_copy.items():
         if len(text) != 2:
             utts.pop(utt_id)
 

@@ -1,5 +1,5 @@
 """
-Copy of /home/b06901141/video-subtitle-generator--b06901075/src/end2end/eval.py.
+Copy of /home//video-subtitle-generator/src/end2end/eval.py.
 Prints error rates.
 
 Usage: python eval_copy.py --file=res.tsv
@@ -66,7 +66,7 @@ def cal_wer(row):
     return 100*float(ed.eval(str(row.hyp).split(SEP), str(row.truth).split(SEP)))/len(str(row.truth).split(SEP))
 
 
-# Evaluation
+# # Evaluation
 # result = pd.read_csv(paras.file, sep='\t')
 # result['hyp_char_cnt'] = result.apply(lambda x: len(str(x.hyp)), axis=1)
 # result['hyp_word_cnt'] = result.apply(lambda x: len(str(x.hyp).split(SEP)), axis=1)

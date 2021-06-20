@@ -2,7 +2,7 @@
 transcript with lowest error (custom eval script).
 
 Usage:
-python get_best_output_pytorch_kaldi.py --tra_dir=/home/galen/pytorch_kaldi/pytorch-kaldi/exp/coursera_LSTM_mfcc_24_epoch/decode_coursera_test_out_dnn2/scoring/ --words=/home/galen/coursera_kaldi/data/lang/words.txt --truth_file=/home/galen/coursera_kaldi/data/train/text --out=int2sym_test.tsv
+python get_best_output_pytorch_kaldi.py --tra_dir=/home/galen/pytorch_kaldi/pytorch-kaldi/exp/4.15_no_libri_aishell/decode_coursera_test_2ep_inf_out_dnn3/scoring/ --words=/home/galen/coursera_kaldi/data/lang/words.txt --truth_file=/home/galen/coursera_kaldi/data/train/text --out=/home/galen/pytorch_kaldi/pytorch-kaldi/exp/4.15_no_libri_aishell/decode_coursera_test_2ep_inf_out_dnn3/scoring/coursera_2ep_inf.tsv
 """
 
 import argparse
@@ -65,6 +65,7 @@ def main():
         error = get_cswer(tsv)
         print("error {}".format(error))
         if error < best_error:
+            print("Current best: {}".format(tra))
             best_error = error
             best_tra = tsv
 
